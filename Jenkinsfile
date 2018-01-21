@@ -11,9 +11,9 @@ pipeline {
         echo 'Sonar Build'
       }
     }
-    stage('Test') {
+    stage('Testing') {
       parallel {
-        stage('Test') {
+        stage('Unit') {
           steps {
             echo 'Test Stage'
           }
@@ -35,6 +35,44 @@ pipeline {
         stage('Docker') {
           steps {
             echo 'Docker image'
+          }
+        }
+      }
+    }
+    stage('Deploy') {
+      parallel {
+        stage('Server Int 1') {
+          steps {
+            echo 'Deploy to Server 1'
+          }
+        }
+        stage('Server Int 2') {
+          steps {
+            echo 'Deploy to server 2'
+          }
+        }
+        stage('Server Int 3') {
+          steps {
+            echo 'Deploy to server 3'
+          }
+        }
+      }
+    }
+    stage('Selunium') {
+      parallel {
+        stage('Desktop') {
+          steps {
+            echo 'testing Desktop'
+          }
+        }
+        stage('Ipad') {
+          steps {
+            echo 'Testing Ipad'
+          }
+        }
+        stage('Surface') {
+          steps {
+            echo 'Testing Surface'
           }
         }
       }
