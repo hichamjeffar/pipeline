@@ -4,11 +4,13 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build stage'
+        sleep 30
       }
     }
     stage('Sonar') {
       steps {
         echo 'Sonar Build'
+        sleep 30
       }
     }
     stage('Testing') {
@@ -16,11 +18,13 @@ pipeline {
         stage('Unit') {
           steps {
             echo 'Test Stage'
+            sleep 30
           }
         }
         stage('Integration') {
           steps {
             echo 'integration Test'
+            sleep 20
           }
         }
       }
@@ -30,11 +34,13 @@ pipeline {
         stage('Release') {
           steps {
             echo 'Release stage'
+            sleep 10
           }
         }
         stage('Docker') {
           steps {
             echo 'Docker image'
+            sleep 20
           }
         }
       }
